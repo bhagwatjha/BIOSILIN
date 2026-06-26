@@ -19,6 +19,14 @@ const LinkedinIcon = () => (
 );
 
 const Footer = React.memo(() => {
+  // Common style for clickable headers
+  const headerLinkStyle = {
+    color: 'inherit',
+    textDecoration: 'none',
+    display: 'block',
+    transition: 'color 0.2s ease'
+  };
+
   return (
     <footer id="contact" className="mega-footer section-padding">
       <div className="container">
@@ -51,39 +59,51 @@ const Footer = React.memo(() => {
         {/* Top Row: Skincare, About Us, Services */}
         <div className="mega-footer-grid mt-footer-row">
           <div className="footer-column">
-            <h4>SKINCARE &gt;</h4>
+            <h4>
+              <Link to="/shop" target="_blank" style={headerLinkStyle} className="hover-header">
+                SKINCARE &gt;
+              </Link>
+            </h4>
             <ul>
-              <li><Link to="/shop">Shop Skincare</Link></li>
-              <li><Link to="/coming-soon">Shop Serums</Link></li>
-              <li><Link to="/coming-soon">Shop Routines</Link></li>
-              <li><Link to="/coming-soon">Shop by Skin Concern</Link></li>
-              <li><Link to="/coming-soon">Expert Advice Articles</Link></li>
+              <li><Link to="/shop" target="_blank">Shop Skincare</Link></li>
+              <li><Link to="/shop?category=Serum" target="_blank">Shop Serums</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Shop Routines</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Shop by Skin Concern</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Expert Advice Articles</Link></li>
             </ul>
           </div>
 
           <div className="footer-column">
-            <h4>ABOUT US &gt;</h4>
+            <h4>
+              <Link to="/story" target="_blank" style={headerLinkStyle} className="hover-header">
+                ABOUT US &gt;
+              </Link>
+            </h4>
             <ul>
-              <li><Link to="/story">Our Integrated Skincare Philosophy</Link></li>
-              <li><Link to="/coming-soon">Our Founder</Link></li>
-              <li><Link to="/coming-soon">Our Pro Partners</Link></li>
-              <li><Link to="/coming-soon">Our Science</Link></li>
-              <li><Link to="/coming-soon">Our Sustainability Goals</Link></li>
-              <li><Link to="/coming-soon">Our Values</Link></li>
-              <li><Link to="/coming-soon">Employment Opportunities</Link></li>
-              <li><Link to="/coming-soon">For Professionals</Link></li>
+              <li><Link to="/story#philosophy" target="_blank">Our Integrated Skincare Philosophy</Link></li>
+              <li><Link to="/story#founder" target="_blank">Our Founder</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Our Pro Partners</Link></li>
+              <li><Link to="/story#science" target="_blank">Our Science</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Our Sustainability Goals</Link></li>
+              <li><Link to="/story#values" target="_blank">Our Values</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Employment Opportunities</Link></li>
+              <li><Link to="/coming-soon" target="_blank">For Professionals</Link></li>
             </ul>
           </div>
 
           <div className="footer-column">
-            <h4>SERVICES &gt;</h4>
+            <h4>
+              <Link to="/coming-soon" target="_blank" style={headerLinkStyle} className="hover-header">
+                SERVICES &gt;
+              </Link>
+            </h4>
             <ul>
-              <li><Link to="/coming-soon">Live Chat with an Aesthetician</Link></li>
-              <li><Link to="/coming-soon">Livestream Shopping Event</Link></li>
-              <li><Link to="/coming-soon">Book a Private Online Consultation</Link></li>
-              <li><Link to="/coming-soon">Explore Professional Treatments</Link></li>
-              <li><Link to="/coming-soon">Find an Advanced Clinical Spa</Link></li>
-              <li><Link to="/coming-soon">Find a Skincare Professional</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Live Chat with an Aesthetician</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Livestream Shopping Event</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Book a Private Online Consultation</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Explore Professional Treatments</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Find an Advanced Clinical Spa</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Find a Skincare Professional</Link></li>
             </ul>
           </div>
         </div>
@@ -91,38 +111,50 @@ const Footer = React.memo(() => {
         {/* Bottom Row: My Account, Help, Resources */}
         <div className="mega-footer-grid mt-footer-row">
           <div className="footer-column">
-            <h4>MY ACCOUNT &gt;</h4>
+            <h4>
+              <Link to="/coming-soon" target="_blank" style={headerLinkStyle} className="hover-header">
+                MY ACCOUNT &gt;
+              </Link>
+            </h4>
             <ul>
-              <li><Link to="/coming-soon">Order Status</Link></li>
-              <li><Link to="/coming-soon">Manage Subscription</Link></li>
-              <li><Link to="/coming-soon">Join BIOSILIN Rewards</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Order Status</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Manage Subscription</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Join BIOSILIN Rewards</Link></li>
             </ul>
           </div>
 
           <div className="footer-column">
-            <h4>HELP &gt;</h4>
+            <h4>
+              <Link to="/coming-soon" target="_blank" style={headerLinkStyle} className="hover-header">
+                HELP &gt;
+              </Link>
+            </h4>
             <ul>
-              <li><Link to="/coming-soon">Customer Service</Link></li>
-              <li><Link to="/coming-soon">FAQ</Link></li>
-              <li><Link to="/coming-soon">Contact Us</Link></li>
-              <li><Link to="/coming-soon">Authorized Retailers</Link></li>
-              <li><Link to="/coming-soon">Afterpay</Link></li>
-              <li><Link to="/coming-soon">Consumer Health Data Notice</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Customer Service</Link></li>
+              <li><Link to="/coming-soon" target="_blank">FAQ</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Contact Us</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Authorized Retailers</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Afterpay</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Consumer Health Data Notice</Link></li>
             </ul>
           </div>
 
           <div className="footer-column">
-            <h4>RESOURCES &gt;</h4>
+            <h4>
+              <Link to="/coming-soon" target="_blank" style={headerLinkStyle} className="hover-header">
+                RESOURCES &gt;
+              </Link>
+            </h4>
             <ul>
-              <li><Link to="/coming-soon">Privacy Policy</Link></li>
-              <li><Link to="/coming-soon">Terms of Use</Link></li>
-              <li><Link to="/coming-soon">Online Preferences</Link></li>
-              <li><Link to="/coming-soon">Ad Choices</Link></li>
-              <li><Link to="/coming-soon">User Generated Content Permission Terms</Link></li>
-              <li><Link to="/coming-soon">Accessibility Statement</Link></li>
-              <li><Link to="/coming-soon">✓ Your Privacy Choices</Link></li>
-              <li><Link to="/coming-soon">Notice At Collection</Link></li>
-              <li><Link to="/coming-soon">Consumer Health Data Notice</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Privacy Policy</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Terms of Use</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Online Preferences</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Ad Choices</Link></li>
+              <li><Link to="/coming-soon" target="_blank">User Generated Content Permission Terms</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Accessibility Statement</Link></li>
+              <li><Link to="/coming-soon" target="_blank">✓ Your Privacy Choices</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Notice At Collection</Link></li>
+              <li><Link to="/coming-soon" target="_blank">Consumer Health Data Notice</Link></li>
             </ul>
           </div>
         </div>
