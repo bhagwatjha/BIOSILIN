@@ -13,6 +13,7 @@ import { RegimenProvider } from './context/RegimenContext';
 import { AuthProvider } from './context/AuthContext';
 import AuthModal from './components/AuthModal';
 import RegimenDrawer from './components/RegimenDrawer';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <AuthProvider>
         <RegimenProvider>
           <Router>
+            <ScrollToTop />
             <Navbar />
             <main className="main-content">
               <Routes>
