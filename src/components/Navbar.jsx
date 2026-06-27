@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRegimen } from '../context/RegimenContext';
 import { useAuth } from '../context/AuthContext';
+import { useFavorites } from '../context/FavoritesContext';
 
 const Navbar = React.memo(() => {
   const [scrolled, setScrolled] = useState(false);
   const { regimen, toggleDrawer } = useRegimen();
   const { user, toggleAuthModal, logout } = useAuth();
+  const { favorites } = useFavorites();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +47,15 @@ const Navbar = React.memo(() => {
           >
             Regimen ({regimen.length})
           </div>
+
+          <Link 
+            to="/favorites"
+            className="favorites-nav-link" 
+            style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--color-brand-blue)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
+          >
+            Favorites ({favorites.length})
+          </Link>
+
           <Link to="/shop" className="btn btn-primary btn-sm">Shop Now</Link>
         </div>
       </div>
