@@ -1,11 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Heart } from 'lucide-react';
+import { useFavorites } from '../context/FavoritesContext';
 
 const ProductCard = React.memo(({ product }) => {
+  const { toggleFavorite, isFavorite } = useFavorites();
+  const favorited = isFavorite(product?.id);
+
+  const handleFavoriteClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(product);
+  };
+
   return (
     <div className="product-card">
-      <div className="product-image">
+      <div className="product-image" style={{ position: 'relative' }}>
+        <button 
+          className={`favorite-btn ${favorited ? 'active' : ''}`}
+          onClick={handleFavoriteClick}
+          aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
+        >
+          <Heart size={18} className="heart-icon" />
+        </button>
         <div className="placeholder-bottle">{product?.category || 'Product'}</div>
       </div>
       <div className="product-info">
