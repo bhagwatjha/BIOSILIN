@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Heart } from 'lucide-react';
 import { useFavorites } from '../context/FavoritesContext';
+import ProductBottle from './ProductBottle';
 
 const ProductCard = React.memo(({ product }) => {
   const { toggleFavorite, isFavorite } = useFavorites();
@@ -24,8 +25,9 @@ const ProductCard = React.memo(({ product }) => {
         >
           <Heart size={18} className="heart-icon" />
         </button>
-        <div className="placeholder-bottle">{product?.category || 'Product'}</div>
+        <ProductBottle type={product?.category} size="medium" />
       </div>
+
       <div className="product-info">
         <span className="product-category">{product?.category || ''}</span>
         <h3>{product?.name || 'Unknown Product'}</h3>

@@ -9,6 +9,8 @@ import Shop from './pages/Shop';
 import Favorites from './pages/Favorites';
 import NotFound from './pages/NotFound';
 import ComingSoon from './pages/ComingSoon';
+import Quiz from './pages/Quiz';
+import Checkout from './pages/Checkout';
 import ErrorBoundary from './components/ErrorBoundary';
 import { RegimenProvider } from './context/RegimenContext';
 import { AuthProvider } from './context/AuthContext';
@@ -34,6 +36,8 @@ function App() {
                   <Route path="/product/:id" element={<ProductDetail />} />
                   <Route path="/favorites" element={<Favorites />} />
                   <Route path="/coming-soon" element={<ComingSoon />} />
+                  <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/checkout" element={<Checkout />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

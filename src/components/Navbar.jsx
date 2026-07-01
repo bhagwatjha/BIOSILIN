@@ -27,6 +27,7 @@ const Navbar = React.memo(() => {
         <ul className="nav-links">
           <li><Link to="/story">Our Story</Link></li>
           <li><Link to="/shop">Formulations</Link></li>
+          <li><Link to="/quiz" style={{ color: 'var(--color-accent)', fontWeight: '600' }}>Skin Quiz</Link></li>
         </ul>
         <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           
