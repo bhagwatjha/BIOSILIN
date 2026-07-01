@@ -22,9 +22,19 @@ export const AuthProvider = ({ children }) => {
 
   const login = (email, password) => {
     // Mock login logic
-    const mockUser = { name: email.split('@')[0], email };
+    const savedName = localStorage.getItem(`biosilin_name_${email}`) || email.split('@')[0];
+    const mockUser = { name: savedName, email };
     setUser(mockUser);
     localStorage.setItem('biosilin_user', JSON.stringify(mockUser));
+    setAuthModalOpen(false);
+  };
+
+  const signup = (name, email, password) => {
+    // Mock signup logic
+    const newUser = { name, email };
+    setUser(newUser);
+    localStorage.setItem('biosilin_user', JSON.stringify(newUser));
+    localStorage.setItem(`biosilin_name_${email}`, name); // Persist name for mock logins
     setAuthModalOpen(false);
   };
 
@@ -38,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAuthModalOpen, toggleAuthModal }}>
+    <AuthContext.Provider value={{ user, login, signup, logout, isAuthModalOpen, toggleAuthModal }}>
       {children}
     </AuthContext.Provider>
   );

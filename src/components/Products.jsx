@@ -1,17 +1,20 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import ProductCard from './ProductCard';
 import { products } from '../data/products';
 
-const Products = React.memo(() => {
+const Products = React.memo(({ items }) => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const categoryFilter = queryParams.get('category');
 
   // Filter products if a category is specified (case-insensitive)
-  const filteredProducts = categoryFilter
-    ? products.filter(p => p.category.toLowerCase() === categoryFilter.toLowerCase())
-    : products;
+  const filteredProducts = items !== undefined
+    ? items
+    : (categoryFilter
+        ? products.filter(p => p.category.toLowerCase() === categoryFilter.toLowerCase())
+        : products);
 
   // Format the heading to be plural and capitalized nicely
   const getHeading = () => {
@@ -24,13 +27,17 @@ const Products = React.memo(() => {
     return `${categoryFilter} Formulations`;
   };
 
+  const isFiltered = items !== undefined;
+
   return (
-    <section id="products" className="products-section section-padding">
-      <div className="container">
-        <div className="section-header">
-          <h2>{getHeading()}</h2>
-          <p>Potent active ingredients delivered through advanced scientific formulations.</p>
-        </div>
+    <section id="products" className={`products-section ${isFiltered ? '' : 'section-padding'}`}>
+      <div className={isFiltered ? '' : 'container'}>
+        {!isFiltered && (
+          <div className="section-header">
+            <h2>{getHeading()}</h2>
+            <p>Potent active ingredients delivered through advanced scientific formulations.</p>
+          </div>
+        )}
         
         {filteredProducts.length > 0 ? (
           <div className="products-grid">
@@ -49,5 +56,9 @@ const Products = React.memo(() => {
 });
 
 Products.displayName = 'Products';
+
+Products.propTypes = {
+  items: PropTypes.array
+};
 
 export default Products;

@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRegimen } from '../context/RegimenContext';
 import { useAuth } from '../context/AuthContext';
+import ProductBottle from './ProductBottle';
 
 const RegimenDrawer = () => {
+  const navigate = useNavigate();
   const { regimen, isDrawerOpen, toggleDrawer, removeFromRegimen } = useRegimen();
   const { user, toggleAuthModal } = useAuth();
 
@@ -11,11 +14,11 @@ const RegimenDrawer = () => {
   const subtotal = regimen.reduce((total, item) => total + (item.price || 0) * (item.quantity || 1), 0);
 
   const handleCheckout = () => {
+    toggleDrawer(false);
     if (!user) {
-      toggleDrawer(false);
       toggleAuthModal(true);
     } else {
-      alert("Proceeding to secure checkout!");
+      navigate('/checkout');
     }
   };
 
@@ -39,7 +42,7 @@ const RegimenDrawer = () => {
               {regimen.map((item) => (
                 <li key={item.id} className="cart-item">
                   <div className="cart-item-img">
-                    <div className="placeholder-bottle small">{item.category}</div>
+                    <ProductBottle type={item.category} size="small" />
                   </div>
                   <div className="cart-item-details">
                     <h4>{item.name}</h4>
